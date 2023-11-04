@@ -1,0 +1,4 @@
+main: xyz.tangledwires.eventhandlertesting.Main
+name: EventHandlerTesting
+version: 1.0
+api-version: 1.20
