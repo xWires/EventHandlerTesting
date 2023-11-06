@@ -1,5 +1,7 @@
 package xyz.tangledwires.eventhandlertesting;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,5 +34,24 @@ public class EventHandlerTestingMain extends JavaPlugin {
     public void onDisable() {
         getLogger().info("Disabling EventHandlerTesting");
     }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("eventhandlertesting")) {
+            if (args.length == 0) {
+                return false;
+            }
+            else if (args[0].equalsIgnoreCase("reload")) {
+                this.reloadConfig();
+                sender.sendMessage("Reloaded Config!");
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return false;
+    }
+
     public FileConfiguration getPluginConfiguration() { return this.getConfig(); }
 }

@@ -8,7 +8,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import xyz.tangledwires.eventhandlertesting.EventHandlerTestingMain;
 
-
 public class onPlayerJoinListener implements Listener {
      @EventHandler
      public void onPlayerJoin(PlayerJoinEvent event) {
