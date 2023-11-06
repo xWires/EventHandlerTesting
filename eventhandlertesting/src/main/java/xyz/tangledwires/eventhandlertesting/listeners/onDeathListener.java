@@ -6,12 +6,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-import xyz.tangledwires.eventhandlertesting.Main;
+import xyz.tangledwires.eventhandlertesting.EventHandlerTestingMain;
 
 public class onDeathListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-        final FileConfiguration config = Main.getPlugin(null).getConfig();
+        final FileConfiguration config = EventHandlerTestingMain.getPlugin(EventHandlerTestingMain.class).getConfig();
           if (config.getString("settings.death-message-enabled") == "true") {
                final String deathMessage = ChatColor.translateAlternateColorCodes("&".charAt(0), config.getString("settings.death-message"));
                final String deathMessageFormatted = deathMessage.replace("{player}", event.getEntity().getName());
